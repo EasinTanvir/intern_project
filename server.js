@@ -8,14 +8,9 @@ app.use(express.json());
 const spotify = require("./routes/spotify");
 
 app.use(express.json());
-app.use(express.static(path.join("public")));
 
 //routes
 app.use(spotify);
-
-app.use((req, res, next) => {
-  res.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
 
 //error handler
 app.use((error, req, res, next) => {
